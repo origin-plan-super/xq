@@ -150,8 +150,7 @@ a:visited {
     display: inline-block;
     /*padding: 0 10px;*/
     background: #70ad47;
-    /*width: 14%;*/
-    opacity: 0;
+    width: 14%;
 }
 
 .top-nav ul li a {

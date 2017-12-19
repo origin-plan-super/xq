@@ -38,22 +38,7 @@ var nav = {
 			width = 100 / length;
 		}
 		$(".top-nav-list").css("width", width + "%");
-		$(".top-nav-list").css("opacity", "1");
-		//  ========== 
-		//  = 开始active = 
-		//  ========== 
-		var location_href = window.location.href;
 
-		var pageName = location_href.split("=")[1];
-		nav.pageName = pageName;
-		$(".top-nav-list").each(function () {
-			var $a = $(this).find("a");
-			var href = $a.attr('href');
-			if (href.indexOf(pageName) > 0) {
-				$(this).find("a").addClass("active");
-
-			}
-		});
 	}
 }
 nav.init();
