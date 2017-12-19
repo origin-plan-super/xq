@@ -24,6 +24,9 @@ class IndexController extends CommonController {
     public function home(){
         
         
+        $peonle_count=M('count')->count();
+        $this->assign('peonle_count',$peonle_count);
+        
         $this -> display();
     }
     
