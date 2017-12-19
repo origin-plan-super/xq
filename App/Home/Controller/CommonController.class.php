@@ -37,21 +37,29 @@ class CommonController extends Controller {
         
         
         //找信息
-        $call_me_bottom= F('call_me_bottom');
-        $call_me_rows=  F('call_me_rows');
-        $phone=F('phone');
-        $weixin=F('weixin');
-        $qq=F('qq');
+        
+        $model=M('setting');
+        $app_setting=$model->where('setting_name = "app_setting"')->find();
         
         
+        $app_setting=json_decode($app_setting['setting'],true);
+        if(!empty($app_setting)){
+            
+            $call_me_bottom= $app_setting['call_me_bottom'];
+            $call_me_rows=  $app_setting['call_me_rows'];
+            $phone=$app_setting['phone'];
+            $weixin=$app_setting['weixin'];
+            $qq=$app_setting['qq'];
+            $call_me_rows = explode("\n",  $call_me_rows);
+            
+            
+            $this->assign('call_me_bottom',$call_me_bottom);
+            $this->assign('call_me_rows',$call_me_rows);
+            $this->assign('phone',$phone);
+            $this->assign('qq',$qq);
+            $this->assign('weixin',$weixin);
+        }
         
-        $call_me_rows = explode("\n",  $call_me_rows);
-        
-        $this->assign('call_me_bottom',$call_me_bottom);
-        $this->assign('call_me_rows',$call_me_rows);
-        $this->assign('phone',$phone);
-        $this->assign('weixin',$weixin);
-        $this->assign('qq',$qq);
         
         
         //人数统计

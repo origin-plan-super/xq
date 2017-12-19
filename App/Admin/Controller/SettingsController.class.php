@@ -21,18 +21,29 @@ class SettingsController extends CommonController{
     //主
     public function index(){
         
-        $call_me_bottom= F('call_me_bottom');
-        $call_me_rows=  F('call_me_rows');
-        $phone=F('phone');
-        $weixin=F('weixin');
-        $qq=F('qq');
+        
+        $model=M('setting');
+        $app_setting=$model->where('setting_name = "app_setting"')->find();
         
         
-        $this->assign('call_me_bottom',$call_me_bottom);
-        $this->assign('call_me_rows',$call_me_rows);
-        $this->assign('phone',$phone);
-        $this->assign('qq',$qq);
-        $this->assign('weixin',$weixin);
+        $app_setting=json_decode($app_setting['setting'],true);
+        if(!empty($app_setting)){
+            
+            $call_me_bottom= $app_setting['call_me_bottom'];
+            $call_me_rows=  $app_setting['call_me_rows'];
+            $phone=$app_setting['phone'];
+            $weixin=$app_setting['weixin'];
+            $qq=$app_setting['qq'];
+            
+            
+            $this->assign('call_me_bottom',$call_me_bottom);
+            $this->assign('call_me_rows',$call_me_rows);
+            $this->assign('phone',$phone);
+            $this->assign('qq',$qq);
+            $this->assign('weixin',$weixin);
+        }
+        
+        
         $this->display();
     }
     
@@ -41,23 +52,31 @@ class SettingsController extends CommonController{
         
         $post=I('post.save');
         
+        $model=M('setting');
+        $add=[];
+        $setting=[];
+        $setting['call_me_bottom']=$post['call_me_bottom'];
+        $setting['call_me_rows']=$post['call_me_rows'];
+        $setting['phone']=$post['phone'];
+        $setting['weixin']=$post['weixin'];
+        $setting['qq']=$post['qq'];
         
-        $call_me_bottom=$post['call_me_bottom'];
-        $call_me_rows=$post['call_me_rows'];
-        $phone=$post['phone'];
-        $weixin=$post['weixin'];
-        $qq=$post['qq'];
+        $add['setting_name']='app_setting';
+        $add['setting']=json_encode($setting);
         
-        F('call_me_bottom',$call_me_bottom);
-        F('call_me_rows',$call_me_rows);
-        F('phone',$phone);
-        F('qq',$qq);
-        F('weixin',$weixin);
-        
-        
+        $result=  $model->add($add,null,true);
         $res=[];
-        $res['res']=1;
-        $res['msg']=F();
+        
+        //=========判断=========
+        if($result){
+            $res['res']=1;
+            $res['msg']=$result;
+        }else{
+            $res['res']=-1;
+            $res['msg']=$result;
+        }
+        //=========判断end=========
+        
         //=========输出json=========
         echo json_encode($res);
         //=========输出json=========
