@@ -41,7 +41,7 @@ var nav = {
 
 	}
 }
-nav.init();
+// nav.init();
 
 //导航栏样式结束
 
