@@ -8046,8 +8046,7 @@ UM.plugins['autoupload'] = function () {
             try {
                 var json = eval('('+e.target.response+')'),
                     link = json.url,
-					//me.options.imagePath +
-                    picLink =  link;
+                    picLink = me.options.imagePath + link;
                 editor.execCommand('insertimage', {
                     src: picLink,
                     _src: picLink
