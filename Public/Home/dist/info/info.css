@@ -1,0 +1,44 @@
+.info-title {
+	border-bottom: 1px dotted #ddd;
+	margin: 10px 0;
+	padding: 5px 0;
+}
+
+#info_title {
+	text-align: center;
+	margin: 10px 0;
+	font-size: 25px;
+	color: #333;
+	font-weight: bold;
+}
+
+#info_info {
+	padding: 15px;
+	border-radius: 5px;
+	background: #eee;
+	font-size: 13px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#info_content {}
+
+#info_time {
+	font-size: 11px;
+	text-align: center;
+	padding: 5px;
+}
+
+.app-info-body {
+	padding: 15px;
+	border: 1px solid #ededed;
+}
+
+.app-info-body img {
+	max-width: 100%;
+}
+
+#level_2 {
+
+
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>{$nav.nav_title} | {$info.info_title}</title>
+	<link rel="stylesheet" type="text/css" href="__VENDOR__/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="__VENDOR__/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="__HDIST__/app/app.css" />
+	<link rel="stylesheet" type="text/css" href="__HDIST__/info/info.css" />
+
+</head>
+
+<body>
+	<div id="app-info">
+
+		<include file="App/Home/View/comp/nav.comp.html" />
+
+
+
+		<!--首页>新闻中心开始  ===联系我们  开始-->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="panel panel-default app-panel-default">
+						<ol class="breadcrumb">
+							当前位置：
+							<li>
+								<a href="{:U('Index/index')}">首页</a>
+							</li>
+							<li>
+								<a href="__MODULE__/List/index/listname/{$nav.nav_id}" id="level_1">{$nav.nav_title}</a>
+							</li>
+							<li class="active" id="">
+								<span id="level_2">{$info.info_title}</span>
+							</li>
+						</ol>
+						<div class="panel-body app-info-body">
+							<div class="info-title">
+								<div id="info_title">
+									{$info.info_title}
+								</div>
+							</div>
+							<div id="info_time">
+								发布时间：{$info.add_time}
+							</div>
+							<div id="info_info">
+								{$info.info_info}
+							</div>
+							<div id="info_content">
+								{$info.info_content}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="panel panel-default app-panel-default">
+						<ol class="breadcrumb">
+							<li>
+								<span class="panel-title green">联系我们</span>
+							</li>
+						</ol>
+
+						<div class="panel-body app-list-body app-list-contact app-info-body">
+							<img src="__ASSETS__/img/lianxiwomen.png" />
+							<div class="company-info">
+
+								<volist name='call_me_rows' id='vol' empty='联系我们'>
+									<p>{$vol}</p>
+								</volist>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--首页>新闻中心结束  ===联系我们  结束-->
+
+		<!--底部开始-->
+		<div class="container-fluid app-bottom-nav">
+			<div class="row">
+				<div class="col-xs-7 app-bottom-7">
+					<p>版权所有&nbsp;2015-2017@上海信雀健康管理有限公司&nbsp;保留所有权利</p>
+					<p>沪ICP备15048359号</p>
+					<p>{$call_me_bottom}</p>
+				</div>
+				<div class="col-xs-5 app-bottom-5">
+					<img src="__ROOT__/{$weixin}" />
+					<p>扫描二维码&nbsp;关注我们</p>
+				</div>
+			</div>
+		</div>
+		<!--底部结束-->
+	</div>
+
+	<script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__VENDOR__/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__VENDOR__/vue/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__HDIST__/app/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__HDIST__/info/info.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$("#info_content *").each(function () {
+			$(this).css("white-space", "normal")
+		});
+	</script>
+
+</body>
+
+</html>

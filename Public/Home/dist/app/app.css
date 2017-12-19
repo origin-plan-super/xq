@@ -1,0 +1,409 @@
+.container {
+	width: 1000px;
+}
+
+
+/*工具类 开始*/
+
+
+/*更改bootstrap中的p标签的样式*/
+
+
+/*左浮*/
+
+.fl {
+	float: left;
+}
+
+
+/*右浮*/
+
+.fr {
+	float: right;
+}
+
+a,
+a:hover,
+a:link,
+a:active,
+a:visited {
+	text-decoration: none;
+	color: #767676;
+}
+
+
+/*灰色*/
+
+.gray {
+	color: #b6b6b6;
+}
+
+.green {
+	color: #70ad47;
+}
+
+
+/*变小手*/
+
+.cursor {
+	cursor: pointer;
+}
+
+
+/*一行显示省略号*/
+
+.app-line {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+/*工具类结束*/
+
+
+/*顶部导航栏样式开始==============================================*/
+
+
+/*左上角图标的样式  1   小鸟图片*/
+
+.brid {
+	width: 60px;
+	height: 60px;
+	margin-right: 40px;
+}
+
+
+/*左上角图标的样式2  信雀医疗图片*/
+
+.xinque {
+	width: 140px;
+	height: 70px;
+}
+
+
+/*顶部右边电话的样式*/
+
+.telphone {
+	color: #70ad47;
+}
+
+
+/*顶部导航栏样式*/
+
+
+/*.top-nav {
+	background: #70ad47;
+	margin-left: auto;
+	margin-right:auto;
+	margin-bottom: 50px;
+}
+
+.top-nav ul {
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+	white-space:nowrap;
+}
+
+.top-nav li {
+	display: inline-block;
+	margin: 0 22px;
+}
+
+.top-nav li a {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	color: #FFFFFF;
+	padding: 0 50px;
+}
+
+.top-nav li.active {
+	background: #bad8a8;
+	color: #70ad47;
+}*/
+
+.top-nav {
+	/*position: absolute;*/
+	background: #70ad47;
+	margin-bottom: 20px;
+	/*min-width: 100%;*/
+	/*position: absolute;
+    min-width: 100%;
+    background: #70ad47;
+    margin-bottom: 50px;*/
+}
+
+.top-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+	white-space: nowrap;
+	font-size: 0;
+	background: #70ad47;
+	/*width: 1000px;*/
+}
+
+.top-nav ul li {
+	display: inline-block;
+	/*padding: 0 10px;*/
+	background: #70ad47;
+	/*width: 14%;*/
+	opacity: 0;
+}
+
+.top-nav ul li a {
+	display: block;
+	font-size: 14px;
+	padding: 10px 0px;
+}
+
+.top-nav ul li a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.top-nav ul li a:active {
+	color: #70ad47;
+	background: #bad8a8;
+}
+
+.top-nav-list .active {
+	color: #70ad47;
+	background: #bad8a8;
+}
+
+
+/*顶部导航栏样式结束===================================*/
+
+
+/*底部导航栏开始=================================*/
+
+.app-bottom-nav {
+	background: #f5f3f3;
+	height: 220px;
+}
+
+.app-bottom-7 {
+	height: 220px;
+	text-align: center;
+	padding-top: 80px;
+	padding-left: 350px;
+}
+
+.app-bottom-5 {
+	height: 220px;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.app-bottom-5 img {
+	margin-bottom: 5px;
+}
+
+
+/*底部导航栏结束===================================*/
+
+
+/*轮播下边的点  选中时候的颜色换成自定义的*/
+
+.carousel-indicators .active {
+	background-color: #70ad47;
+}
+
+
+/*给轮播图加一个底外边距*/
+
+#myCarousel {
+	margin-bottom: 20px;
+}
+
+
+/*修改框架中的高度*/
+
+.carousel-inner>.item>a>img,
+.carousel-inner>.item>img,
+.img-responsive,
+.thumbnail a>img,
+.thumbnail>img {
+	max-width: 100%;
+	height: 368px;
+}
+
+
+/*面板里边 小标题的样式*/
+
+.app-sm-title {
+	font-size: 16px;
+	color: #333333;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+/*小标题下边的文本*/
+
+.app-sm-test {
+	color: #666666;
+	font-size: 14px;
+	word-break: break-all;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	/** 对象作为伸缩盒子模型显示 **/
+	-webkit-box-orient: vertical;
+	/** 设置或检索伸缩盒对象的子元素的排列方式 **/
+	-webkit-line-clamp: 2;
+	/** 显示的行数 **/
+	overflow: hidden;
+	/** 隐藏超出的内容 **/
+}
+
+.app-sm-test-list {
+	position: relative;
+	color: #767676;
+	font-size: 14px;
+}
+
+
+/*列表和详情的面板用到的样式 开始*/
+
+.app-panel-default {
+	border: none;
+	-webkit-box-shadow: none;
+}
+
+.app-panel-default .app-panel-heading {
+	background: #FFFFFF;
+	border-color: transparent;
+}
+
+
+/*列表和详情的面板用到的样式 结束*/
+
+
+/*详情开始*/
+
+.app-about {
+	text-align: center;
+	color: #9e9d9d;
+}
+
+.app-about img {
+	max-width: 100%;
+}
+
+.app-about-info {
+	margin-top: 30px;
+	padding: 0 18px;
+}
+
+.app-about-info ol {
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+	margin-bottom: 40px;
+}
+
+
+/*详情结束*/
+
+
+/*联系我们中的顶部的图片*/
+
+.app-list-contact img {
+	/*width: 269px;*/
+	min-width: 100%;
+	height: 79px;
+}
+
+
+/*联系我们中面板body的padding去掉*/
+
+.app-list-contact {
+	padding: 0px;
+}
+
+
+/*公司信息*/
+
+.company-info {
+	color: #767676;
+	padding-top: 30px;
+	padding-left: 20px;
+}
+
+
+/*去掉面板的border-radius*/
+
+.panel {
+	border-radius: 0;
+}
+
+.panel-heading {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+
+
+
+/*列表页面的样式==============================================================开始*/
+
+
+/*更改面板的样式 把border去掉*/
+
+
+/*面板中的ul的设置*/
+
+.app-list-body {
+	border: 1px solid #eee;
+}
+
+.app-list-body ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.app-list-body ul li {
+	border-bottom: 0.1px solid #e7e5e5;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.app-list-body ul li img {
+	max-width: 100%;
+	/*width: 127px;*/
+	height: 104px;
+}
+
+.breadcrumb {
+	background: #fff;
+	padding: 0;
+	max-width: 500px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+/*自定义 col-xs-10的padding样式*/
+
+.app-list-10 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+}
+
+
+
+
+/*列表页面的样式==============================================================结束*/
+
+.breadcrumb>li+li:before {
+	padding: 0 5px;
+	color: #ccc;
+	content: ">";
+}

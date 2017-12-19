@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>{$nav.nav_title}</title>
+	<link rel="stylesheet" type="text/css" href="__VENDOR__/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="__VENDOR__/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="__HDIST__/app/app.css" />
+	<link rel="stylesheet" type="text/css" href="__HDIST__/list/list.css" />
+</head>
+
+<body>
+	<div id="app-list">
+
+		<include file="App/Home/View/comp/nav.comp.html" />
+
+
+		<!--首页>新闻中心开始  ===联系我们  开始-->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-8">
+					<ol class="breadcrumb">
+						当前位置：
+						<li>
+							<a href="{:U('Index/index')}">首页</a>
+						</li>
+						<li class="active">{$nav.nav_title}</li>
+					</ol>
+					<div class="panel panel-default app-panel-default">
+
+						<div class="panel-body app-list-body">
+							<ul>
+
+								<volist name='info' id='vol' empty='没有文章！'>
+									<li>
+										<div class="row">
+											<div class="col-xs-3">
+												<img src="__ROOT__/{$vol.info_head}" />
+											</div>
+											<div class="col-xs-9 app-list-10">
+												<a href="__MODULE__/Info/info/info_id/{$vol.info_id}">
+													<p class="app-sm-title">{$vol.info_title}</p>
+													<p class="app-sm-test-list">{$vol.info_info}
+														<span class="fr text">
+															<span class="cursor">查看全文>></span>
+														</span>
+													</p>
+
+												</a>
+											</div>
+										</div>
+									</li>
+
+								</volist>
+
+							</ul>
+						</div>
+					</div>
+
+
+
+					<!--分页开始-->
+					<div class="page-all">
+						{$pages}
+					</div>
+					<!--分页结束-->
+				</div>
+				<div class="col-xs-4">
+
+					<ol class="breadcrumb">
+						<li>
+							<a href="../about/about.html">
+								<span class="green">联系我们</span>
+							</a>
+						</li>
+
+					</ol>
+					<div class="panel panel-default app-panel-default">
+						<div class="panel-body app-list-body app-list-contact app-list-body app-info-body">
+							<img src="__ASSETS__/img/lianxiwomen.png" />
+							<div class="company-info">
+								<volist name='call_me_rows' id='vol' empty='联系我们'>
+									<p>{$vol}</p>
+								</volist>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--首页>新闻中心结束  ===联系我们  结束-->
+
+		<!--底部开始-->
+		<div class="container-fluid app-bottom-nav">
+			<div class="row">
+				<div class="col-xs-7 app-bottom-7">
+					<p>版权所有&nbsp;2015-2017@上海信雀健康管理有限公司&nbsp;保留所有权利</p>
+					<p>沪ICP备15048359号</p>
+					<p>{$call_me_bottom}</p>
+				</div>
+				<div class="col-xs-5 app-bottom-5">
+					<img src="__ROOT__/{$weixin}" />
+					<p>扫描二维码&nbsp;关注我们</p>
+				</div>
+			</div>
+		</div>
+		<!--底部结束-->
+	</div>
+
+	<script src="__VENDOR__/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__VENDOR__/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__VENDOR__/vue/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__HDIST__/app/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

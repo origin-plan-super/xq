@@ -1,0 +1,19 @@
+[ 2017-12-19T11:17:57+08:00 ] 192.168.0.105 /xq/index.php/Origin/Index/getInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000502s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000510s ]
+SQL: SHOW COLUMNS FROM `xq_config` [ RunTime:0.0005s ]
+SQL: SELECT `app_name` FROM `xq_config` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `xq_info` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `xq_info` WHERE `info_id` = '' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: add_time D:\database\Project\working\company\xq\App\Origin\Controller\IndexController.class.php 第 67 行.
+SQL: SHOW COLUMNS FROM `xq_nav` [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: nav_id D:\database\Project\working\company\xq\App\Origin\Controller\IndexController.class.php 第 71 行.
+SQL: SELECT * FROM `xq_nav` WHERE `nav_id` = null LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001741s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001786s ]
+

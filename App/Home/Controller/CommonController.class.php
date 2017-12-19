@@ -1,0 +1,65 @@
+<?php
+/**
+* +----------------------------------------------------------------------
+* 创建日期：2017年11月28日
+* +----------------------------------------------------------------------
+* https：//github.com/ALNY-AC
+* +----------------------------------------------------------------------
+* 微信：AJS0314
+* +----------------------------------------------------------------------
+* QQ:1173197065
+* +----------------------------------------------------------------------
+* #####需要登录权限的继承本控制器#####
+* @author 代码狮
+*
+*/
+namespace Home\Controller;
+use Think\Controller;
+class CommonController extends Controller {
+    
+    
+    //ThinkPHP提供的构造方法
+    public function _initialize() {
+        
+        
+        $app_name = M('config')->getField('app_name');
+        C('TMPL_PARSE_STRING.__APPNAME__',$app_name);
+        
+        //找栏目
+        $model=M('nav');
+        $navList = $model->select();
+        $this->assign('navList',$navList);
+        
+        //找轮播
+        $model=M('carousel');
+        $carousel = $model->order('sort desc')->select();
+        $this->assign('carousel',$carousel);
+        
+        
+        //找信息
+        $call_me_bottom= F('call_me_bottom');
+        $call_me_rows=  F('call_me_rows');
+        $phone=F('phone');
+        $weixin=F('weixin');
+        $qq=F('qq');
+        
+        
+        
+        $call_me_rows = explode("\n",  $call_me_rows);
+        
+        $this->assign('call_me_bottom',$call_me_bottom);
+        $this->assign('call_me_rows',$call_me_rows);
+        $this->assign('phone',$phone);
+        $this->assign('weixin',$weixin);
+        $this->assign('qq',$qq);
+        
+        
+        
+    }
+    
+    //空操作
+    public function _empty(){
+        $this->error('页面不存在！',U('Index/index'),3);
+    }
+    
+}
