@@ -54,6 +54,18 @@ class CommonController extends Controller {
         $this->assign('qq',$qq);
         
         
+        //人数统计
+        $model=M('count');
+        $add=[];
+        $add['add_time']=time();
+        $add['edit_time']=time();
+        $add['ip']=getIp();
+        
+        $result=    $model->where('ip = "'.$add['ip'].'"')->find();
+        if(!$result){
+            $model->add($add,null,true);
+        }
+        
         
     }
     

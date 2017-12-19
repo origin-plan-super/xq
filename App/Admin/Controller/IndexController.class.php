@@ -23,15 +23,6 @@ class IndexController extends CommonController {
     }
     public function home(){
         
-        // session_start();//定义session，同一IP登录不累加
-        // echo $session_id;
-        
-        // $peonle_count
-        $ip= getIp();
-        // $session_id =  session_id();
-        
-        echo $_SERVER['REMOTE_ADDR'];
-        
         
         $this -> display();
     }
