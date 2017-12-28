@@ -20,12 +20,6 @@ class CommonController extends Controller {
     
     //ThinkPHP提供的构造方法
     public function _initialize() {
-        
-        
-        
-        echo __ROOT__;
-        
-        die;
         $app_name = M('config')->getField('app_name');
         C('TMPL_PARSE_STRING.__APPNAME__',$app_name);
         

@@ -29,7 +29,7 @@ const URL_REWRITE       =   2;  //REWRITE模式
 const URL_COMPAT        =   3;  // 兼容模式
 
 // 类文件后缀
-const EXT               =   '.class.php'; 
+const EXT               =   '.class.php';
 
 // 系统常量定义
 defined('THINK_PATH')   or define('THINK_PATH',     __DIR__.'/');
@@ -41,8 +41,8 @@ if(function_exists('saeAutoLoader')){// 自动识别SAE环境
     defined('APP_MODE')     or define('APP_MODE',      'sae');
     defined('STORAGE_TYPE') or define('STORAGE_TYPE',  'Sae');
 }else{
-    defined('APP_MODE')     or define('APP_MODE',       'common'); // 应用模式 默认为普通模式    
-    defined('STORAGE_TYPE') or define('STORAGE_TYPE',   'File'); // 存储类型 默认为File    
+    defined('APP_MODE')     or define('APP_MODE',       'common'); // 应用模式 默认为普通模式
+    defined('STORAGE_TYPE') or define('STORAGE_TYPE',   'File'); // 存储类型 默认为File
 }
 
 defined('RUNTIME_PATH') or define('RUNTIME_PATH',   APP_PATH.'Runtime/');   // 系统运行时目录
@@ -87,11 +87,18 @@ if(!IS_CLI) {
     }
     if(!defined('__ROOT__')) {
         $_root  =   rtrim(dirname(_PHP_FILE_),'/');
-        define('__ROOT__',  (($_root=='/' || $_root=='\\')?'':$_root));
+        
+        $r12138=(($_root=='/' || $_root=='\\')?'':$_root);
+        if(!$r12138){
+            define('__ROOT__','.');
+        }else{
+            define('__ROOT__',  $r12138);
+        }
+        
     }
 }
 
 // 加载核心Think类
 require CORE_PATH.'Think'.EXT;
-// 应用初始化 
+// 应用初始化
 Think\Think::start();
