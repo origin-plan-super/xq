@@ -22,6 +22,10 @@ class CommonController extends Controller {
     public function _initialize() {
         
         
+        
+        echo __ROOT__;
+        
+        die;
         $app_name = M('config')->getField('app_name');
         C('TMPL_PARSE_STRING.__APPNAME__',$app_name);
         

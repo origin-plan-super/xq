@@ -34,4 +34,5 @@ define('__UPLOAD__USER__', '/Public/Upload/user/');
 define('__UPLOAD__ADMIN__', '/Public/Upload/admin/');
 
 // 引入ThinkPHP入口文件
+
 require './ThinkPHP/ThinkPHP.php';
