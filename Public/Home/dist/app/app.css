@@ -178,7 +178,7 @@ a:visited {
 .app-bottom-nav {
     position: relative;
     background: #f5f3f3;
-    height: 220px;
+    padding: 50px;
 }
 
 .app-bottom-7 {
