@@ -67,7 +67,7 @@
 
                 <div class="form-group">
                     <label> </label>
-                    <img src="__ROOT__/{$info.info_head}" alt="" id="info_head_img" name="info_head">
+                    <img src="__ROOT__{$info.info_head}" alt="" id="info_head_img" name="info_head">
                     <input type="hidden" name="info_head" value='{$info.info_head}' id="info_head">
 
                 </div>
@@ -197,7 +197,7 @@
 
                     if (res.code == 0) {
                         //成功
-                        $('#info_head_img').attr('src', '__ROOT__/' + res.data.src);
+                        $('#info_head_img').attr('src', '__ROOT__' + res.data.src);
                         $('#info_head').val(res.data.src);
 
                     }

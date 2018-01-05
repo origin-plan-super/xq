@@ -66,7 +66,7 @@
 
                 <div class="form-group">
                     <label> </label>
-                    <img src="__ROOT__/{$weixin}" alt="未配置微信二维码" id="weixin_img">
+                    <img src="__ROOT__{$weixin}" alt="未配置微信二维码" id="weixin_img">
                     <input type="hidden" name="weixin" value='{$weixin}' id="weixin">
                 </div>
 
@@ -155,7 +155,7 @@
 
                     if (res.code == 0) {
                         //成功
-                        $('#weixin_img').attr('src', '__ROOT__/' + res.data.src);
+                        $('#weixin_img').attr('src', '__ROOT__' + res.data.src);
                         $('#weixin').val(res.data.src);
 
                     }
