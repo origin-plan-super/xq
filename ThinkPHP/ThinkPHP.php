@@ -89,11 +89,14 @@ if(!IS_CLI) {
         $_root  =   rtrim(dirname(_PHP_FILE_),'/');
         
         $r12138=(($_root=='/' || $_root=='\\')?'':$_root);
-        if(!$r12138){
-            define('__ROOT__','.');
-        }else{
-            define('__ROOT__',  $r12138);
-        }
+        
+        define('__ROOT__', $r12138);
+        
+        // if(!$r12138){
+        //     define('__ROOT__','.');
+        // }else{
+        //     define('__ROOT__',  $r12138);
+        // }
         
     }
 }
