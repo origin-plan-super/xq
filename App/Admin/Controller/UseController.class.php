@@ -567,7 +567,7 @@ class UseController extends CommonController {
                     //图片地址
                     if(empty(I('post.src'))){
                         //默认路径
-                        $img_url = __ROOT__ . __UPLOAD__ADMIN__. $info['savepath'] . $info['savename'];
+                        $img_url = UPLOAD_ROOT_PATH ."file/". $info['savepath'] . $info['savename'];
                     }else{
                         //传来的路径
                         $img_url = UPLOAD_ROOT_PATH . I('post.src') . $info['savepath'] . $info['savename'];
