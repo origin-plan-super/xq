@@ -176,6 +176,7 @@ a:visited {
 /*底部导航栏开始=================================*/
 
 .app-bottom-nav {
+    position: relative;
     background: #f5f3f3;
     height: 220px;
 }
@@ -195,6 +196,12 @@ a:visited {
 
 .app-bottom-5 img {
     margin-bottom: 5px;
+}
+
+.footer-img {
+    position: absolute;
+    right: 12px;
+    top: 0;
 }
 
 
