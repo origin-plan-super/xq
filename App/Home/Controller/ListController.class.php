@@ -18,7 +18,6 @@ use Think\Controller;
 class ListController extends CommonController {
     
     public function index() {
-        
         $nav_id=I('get.listname');
         
         //找栏目名
@@ -32,8 +31,25 @@ class ListController extends CommonController {
             echo "<script>top.location.href='$url'</script>";
             return;
         }
-        $this->assign('nav',$nav);
         
+        $where=[];
+        if(!$nav['super_id']){
+            //一级节点模式
+            $where['super_id']=$nav['nav_id'];
+            $nav_title=$nav['nav_title'];
+        }else{
+            //子级节点模式
+            $where['super_id']=$nav['super_id'];
+            $nav_title = $model->field('nav_title')->where('nav_id = "'.$nav['super_id'].'"')->find();
+            $nav_title = $nav_title['nav_title'];
+            //更换名字
+        }
+        
+        $subnode=$model->where($where)->select();
+        
+        $this->assign('subnode',$subnode);
+        $this->assign('nav',$nav);
+        $this->assign('nav_title',$nav_title);
         //找文章列表
         $model=M('info');
         $where=[];
@@ -51,18 +67,15 @@ class ListController extends CommonController {
         //3、可选，定制分页按钮的提示文字
         
         //4、通过show输出url连接
-        $show   =   $page->show();
+        if($count>20){
+            $show   =   $page->show();
+        }
         //5、展示数据
         
         $info =  $model->where($where)->limit($page->firstRow,$page->listRows)->order('add_time desc')->select();
         
-        
-        
         $this->assign('info',$info);
         $this->assign('pages',$show);
-        
-        
-        
         
         
         $this -> display();

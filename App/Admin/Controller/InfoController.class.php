@@ -55,15 +55,42 @@ class InfoController extends CommonController{
             "%".$key."%",
             'OR'
             );
+            
         }
         
         
-        $result= $model->limit("$page,$limit")->order($order)->where($where)
-        ->field('t1.*,t2.nav_title,t2.nav_id')
-        ->table('xq_info as t1,xq_nav as t2')
-        ->where('t1.nav_id = t2.nav_id')
-        ->select();
-        $res['count']=count($result);
+        
+        $result= $model->field('info_id,nav_id,info_title,add_time,edit_time')->limit("$page,$limit")->order($order)->where($where)->select();
+        
+        $res['count']=$model->order($order)->where($where)->count();
+        
+        $nav_model=M('nav');
+        
+        $field='nav_id,nav_title,super_id';
+        foreach($result as $key=>$value){
+            
+            $nav_id=$value['nav_id'];
+            $where=[];
+            $where['nav_id']=$nav_id;
+            $nav=$nav_model->field($field)->where($where)->find();
+            
+            if(!$nav){
+                $nav=[];
+                $nav['nav_title']='未配置栏目';
+            }
+            if($nav['super_id']){
+                
+                //有上级
+                $super_id=$nav['super_id'];
+                $where=[];
+                $where['nav_id']=$super_id;
+                $super_nav=$nav_model->field('nav_id,nav_title')->where($where)->find();
+                $nav['nav_title']=$super_nav['nav_title'].' \\ '.$nav['nav_title'];
+                
+            }
+            $result[$key] = array_merge($result[$key],$nav);
+            
+        }
         
         
         
@@ -105,6 +132,38 @@ class InfoController extends CommonController{
         
         
         $this->display();
+        
+    }
+    public function getNavList(){
+        
+        
+        $model=M('nav');
+        
+        $nav=$model->select();
+        
+        foreach($nav as $key=>$value){
+            
+            
+            if($value['super_id']){
+                $id=$value['super_id'];
+                $where=[];
+                $where['nav_id']=$id;
+                $super_nav=$model->where($where)->find();
+                $nav[$key]['nav_title']=$super_nav['nav_title']. ' \\ '.$nav[$key]['nav_title'];
+                
+            }
+            
+        }
+        $res['msg']=$nav;
+        
+        
+        //=========判断end=========
+        
+        //=========输出json=========
+        echo json_encode($res);
+        //=========输出json=========
+        
+        
         
     }
     

@@ -19,8 +19,6 @@ class InfoController extends CommonController {
     public function info() {
         
         
-        
-        
         $info_id=I('get.info_id');
         
         $model=M('info');
@@ -48,6 +46,19 @@ class InfoController extends CommonController {
         $where['nav_id']=$info['nav_id'];
         $nav=$navModel->where($where)->find();
         
+        $where=[];
+        if(!$nav['super_id']){
+            //一级节点模式
+            $nav_title=[];
+            $nav_title['nav_title']=$nav['nav_title'];
+            
+        }else{
+            //子级节点模式
+            $where['super_id']=$nav['super_id'];
+            $nav_title = $navModel->where('nav_id = "'.$nav['super_id'].'"')->find();
+            //更换名字
+        }
+        $this->assign('nav_title',$nav_title);
         $this->assign('info',$info);
         $this->assign('nav',$nav);
         

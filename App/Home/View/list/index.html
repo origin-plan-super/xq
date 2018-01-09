@@ -10,6 +10,39 @@
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/app/app.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/list/list.css" />
+
+	<style>
+		.list-title {
+			padding: 20px 0;
+			width: 100%;
+			text-align: center;
+			background-color: #72ce35;
+			font-size: 15px;
+			font-weight: bold;
+			color: #fff;
+			margin: 5px 0;
+		}
+
+		.list-group {
+			border-radius: 0;
+
+		}
+
+		.list-group .list-group-item {
+			background-color: #90e05b;
+			border-radius: 0;
+			border: none;
+			margin: 2px 0;
+			color: #fff;
+			text-align: center;
+		}
+
+		.list-group .list-group-item:hover,
+		.list-group .list-group-item.active {
+			background-color: #72ce35;
+			color: #fff;
+		}
+	</style>
 </head>
 
 <body>
@@ -21,13 +54,29 @@
 		<!--首页>新闻中心开始  ===联系我们  开始-->
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-8">
+				<div class="col-md-2">
+					<div class="list-title">
+						{$nav_title}
+					</div>
+					<div class="list-group">
+						<volist name='subnode' id='vol' empty=''>
+							<if condition=' $nav.nav_id == $vol.nav_id '>
+								<a href="__MODULE__/List/index/listname/{$vol.nav_id}" class="list-group-item active">{$vol.nav_title}</a>
+								<else/>
+								<a href="__MODULE__/List/index/listname/{$vol.nav_id}" class="list-group-item">{$vol.nav_title}</a>
+							</if>
+						</volist>
+					</div>
+				</div>
+				<div class="col-md-7">
 					<ol class="breadcrumb">
 						当前位置：
 						<li>
 							<a href="{:U('Index/index')}">首页</a>
 						</li>
+						<li class="active">{$nav_title}</li>
 						<li class="active">{$nav.nav_title}</li>
+
 					</ol>
 					<div class="panel panel-default app-panel-default">
 
@@ -37,10 +86,10 @@
 								<volist name='info' id='vol' empty='没有文章！'>
 									<li>
 										<div class="row">
-											<div class="col-xs-3">
+											<div class="col-md-3">
 												<img src="__ROOT__{$vol.info_head}" />
 											</div>
-											<div class="col-xs-9 app-list-10">
+											<div class="col-md-9 app-list-10">
 												<a href="__MODULE__/Info/info/info_id/{$vol.info_id}">
 													<p class="app-sm-title">{$vol.info_title}</p>
 													<p class="app-sm-test-list">{$vol.info_info}
@@ -60,15 +109,13 @@
 						</div>
 					</div>
 
-
-
 					<!--分页开始-->
 					<div class="page-all">
 						{$pages}
 					</div>
 					<!--分页结束-->
 				</div>
-				<div class="col-xs-4">
+				<div class="col-md-3">
 
 					<ol class="breadcrumb">
 						<li>
@@ -76,11 +123,10 @@
 								<span class="green">联系我们</span>
 							</a>
 						</li>
-
 					</ol>
 					<div class="panel panel-default app-panel-default">
 						<div class="panel-body app-list-body app-list-contact app-list-body app-info-body">
-							<img src="__ASSETS__/img/lianxiwomen.png" />
+							<img src="__ASSETS__/img/lianxiwomen.png" style="width:100%" />
 							<div class="company-info">
 								<volist name='call_me_rows' id='vol' empty='联系我们'>
 									<p>{$vol}</p>

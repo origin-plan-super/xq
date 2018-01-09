@@ -22,7 +22,8 @@ class IndexController extends CommonController {
         
         //找新闻
         $where=[];
-        $where['nav_id']='news';
+        $where['nav_id']='咨询动态';
+        $where['super_id']='咨询动态';
         $news=$model->where($where)->order('is_up desc,add_time desc')->limit(6)->select();
         $news=  toTime($news,'Y-m-d');
         $this->assign('news',$news);
@@ -31,19 +32,22 @@ class IndexController extends CommonController {
         
         //关于我们
         $where=[];
-        $where['nav_id']='about';
+        $where['nav_id']='关于我们';
+        $where['super_id']='关于我们';
         $about=$model->where($where)->order('add_time desc')->find();
         $this->assign('about',$about);
         
         //找服务项目
         $where=[];
-        $where['nav_id']='service';
+        $where['nav_id']='服务项目';
+        $where['super_id']='服务项目';
         $service=$model->where($where)->order('is_up desc,add_time desc')->limit(4)->select();
         $this->assign('service',$service);
         
         //找保健养生
         $where=[];
-        $where['nav_id']='health';
+        $where['nav_id']='保健养生';
+        $where['super_id']='保健养生';
         $health=$model->where($where)->order('is_up desc,add_time desc')->limit(7)->select();
         $this->assign('health',$health);
         
@@ -55,7 +59,7 @@ class IndexController extends CommonController {
         $nav=$model->find();
         $this->assign('nav',$nav);
         
-
+        
         
         
         

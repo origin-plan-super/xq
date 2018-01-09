@@ -67,11 +67,9 @@
                     <input type="hidden" name="info_head" value='{$info.info_head}' id="info_head">
                 </div>
 
-
-
                 <div class="form-group">
                     <label>发布到栏目</label>
-                    <select name="nav_id" lay-verify="" lay-filter='l1' id="l1">
+                    <select name="nav_id" lay-verify="" lay-filter='l1' id="l1" lay-search="">
                         <option value="">选择栏目</option>
                     </select>
                 </div>
@@ -182,7 +180,7 @@
 
             (function () {
 
-                var url = '__MODULE__/use/getList';
+                var url = '__CONTROLLER__/getNavList';
                 var obj = {
                     table: 'nav'
                 };

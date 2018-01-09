@@ -25,7 +25,9 @@ class CommonController extends Controller {
         
         //找栏目
         $model=M('nav');
-        $navList = $model->select();
+        $where=[];
+        $where['level']=1;
+        $navList = $model->where($where)->select();
         $this->assign('navList',$navList);
         
         //找轮播
