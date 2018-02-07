@@ -50,12 +50,14 @@ class CommonController extends Controller {
             $phone=$app_setting['phone'];
             $weixin=$app_setting['weixin'];
             $qq=$app_setting['qq'];
+            $qq2=$app_setting['qq2'];
             $call_me_rows = explode("\n",  $call_me_rows);
             
             $this->assign('call_me_bottom',$call_me_bottom);
             $this->assign('call_me_rows',$call_me_rows);
             $this->assign('phone',$phone);
             $this->assign('qq',$qq);
+            $this->assign('qq2',$qq2);
             $this->assign('weixin',$weixin);
             
         }
