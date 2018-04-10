@@ -58,11 +58,6 @@ class IndexController extends CommonController {
         $nav=$model->find();
         $this->assign('nav',$nav);
         
-        
-        
-        
-        
-        
         $this -> display();
         
     }

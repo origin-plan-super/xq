@@ -1,6 +1,5 @@
 /*轮播图*/
 
-
 /*面板的导航改变颜色*/
 
 .panel-title {
@@ -8,9 +7,7 @@
     display: inline-block;
 }
 
-
 /*面板高度的设置*/
-
 
 /*自定义面板的颜色*/
 
@@ -19,14 +16,12 @@
     text-align: center;
 }
 
-
 /*字体在中间的面板*/
 
 .panel-title.panel-center-title {
     color: #FFFFFF;
     font-size: 20px;
 }
-
 
 /*设置面板body的高度*/
 
@@ -35,7 +30,6 @@
     overflow: hidden;
 }
 
-
 /*面板中的图片的设置*/
 
 .app-panel-body img {
@@ -43,7 +37,6 @@
     /*width: 246px;
 	height: 205px;*/
 }
-
 
 /*服务项目中的图片的大小设置*/
 
@@ -57,7 +50,6 @@
     padding-left: 40px;
 }
 
-
 /*服务项目 面板中的col-xs-3中的文本居中*/
 
 .server-img-test {
@@ -65,11 +57,9 @@
     margin-bottom: 15px;
 }
 
-
 /*.app-panel-body-service{
 	height: 380px;
 }*/
-
 
 /*给保健养生的图片设置大小*/
 
@@ -98,9 +88,7 @@
     display: -webkit-box;
 }
 
-.list:nth-child(1) .list-footer {
-    display: none;
-}
+.list:nth-child(1) .list-footer {}
 
 .list-head a {
     font-size: 14px;
