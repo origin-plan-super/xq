@@ -46,14 +46,13 @@ class IndexController extends CommonController {
         
         //找保健养生
         $where=[];
-        $where['nav_id']='保健养生';
-        $where['super_id']='保健养生';
+        $where['nav_id']='健康养生';
+        $where['super_id']='健康养生';
         $health=$model->where($where)->order('is_up desc,add_time desc')->limit(7)->select();
         $this->assign('health',$health);
         
         
         $model=M('nav');
-        //找保健养生
         $where=[];
         $where['nav_id']='home';
         $nav=$model->find();
