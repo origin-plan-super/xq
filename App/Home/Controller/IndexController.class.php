@@ -51,6 +51,13 @@ class IndexController extends CommonController {
         $health=$model->where($where)->order('is_up desc,add_time desc')->limit(7)->select();
         $this->assign('health',$health);
         
+        //找我们的优势
+        $where=[];
+        $where['nav_id']='我们的优势';
+        $where['super_id']='我们的优势';
+        $health=$model->where($where)->order('is_up desc,add_time desc')->limit(7)->select();
+        $this->assign('women',$health);
+        
         
         $model=M('nav');
         $where=[];
