@@ -8,25 +8,57 @@
 	<link rel="stylesheet" type="text/css" href="__VENDOR__/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/app/app.css" />
 	<link rel="stylesheet" type="text/css" href="__HDIST__/index/index.css" />
+
+
+	<style>
+		.yiban {
+			width: 60%;
+			display: inline-block;
+		}
+
+		.fwxm {
+
+			overflow: hidden;
+
+
+
+		}
+
+		.fwxm .panel-body {
+			height: 290px;
+
+		}
+
+
+		.info-content {
+			word-break: break-all;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			overflow: hidden;
+			line-height: 1.2;
+			height: 50px;
+		}
+	</style>
 </head>
 
 <body>
 
 	<div id="app-index">
 
-
 		<include file="App/Home/View/comp/nav.comp.html" />
 
-		<!--新闻动态和关于我们开始-->
+		<!--资讯动态和关于我们开始-->
 		<div class="container" id="newsApp">
 			<div class="row">
 				<div class="col-xs-8">
-					<div class="panel panel-default">
+					<div class="panel panel-default" style="height:278px">
 						<div class="panel-heading">
-							<a href="__MODULE__/List/index/listname/咨询动态">
-								<h3 class="panel-title">新闻动态</h3>
+							<a href="__MODULE__/List/index/listname/资讯动态">
+								<h3 class="panel-title">资讯动态</h3>
 							</a>
-							<a href="__MODULE__/List/index/listname/咨询动态">
+							<a href="__MODULE__/List/index/listname/资讯动态">
 								<span class="gray fr">更多>></span>
 							</a>
 						</div>
@@ -39,9 +71,9 @@
 									</a>
 								</div>
 								<div class="col-xs-8 app-8">
-									<volist name='news' id='vol' empty='没有新闻'>
+									<volist name='news' id='vol' empty='没有资讯动态'>
 										<div class="list">
-											<div class="list-head app-line">
+											<div class="list-head app-line" style="width:65%">
 												<a href='__MODULE__/Info/info/info_id/{$vol.info_id}'>{$vol.info_title}</a>
 											</div>
 											<div class="list-body">{$vol.info_info}</div>
@@ -54,25 +86,25 @@
 					</div>
 				</div>
 				<div class="col-xs-4">
-					<div class="panel panel-default">
+					<div class="panel panel-default" style="height:278px">
 						<div class="panel-heading">
 							<a href="__MODULE__/List/index/listname/关于我们">
 								<h3 class="panel-title">关于我们</h3>
 							</a>
 						</div>
 						<div class="panel-body app-panel-body">
-							{$about.info_info}
+							{$about.info_info }
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--新闻动态和关于我们结束-->
+		<!--资讯动态和关于我们结束-->
 		<!--服务项目开始-->
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
-					<div class="panel panel-default">
+					<div class="panel panel-default fwxm">
 						<a href="__MODULE__/List/index/listname/服务项目">
 							<div class="panel-heading panel-green">
 								<span class="panel-title panel-center-title">服务项目</span>
@@ -84,9 +116,9 @@
 
 									<div class="col-xs-3 app-col-xs-3">
 										<a href="__MODULE__/Info/info/info_id/{$vol.info_id}">
-											<div class="server-img-test">
+											<div class="server-img-test  ">
 												<img src="__ROOT__{$vol.info_head}" />
-												<span class="green">{$vol.info_title}</span>
+												<div class="green app-line">{$vol.info_title}</div>
 											</div>
 										</a>
 
@@ -110,7 +142,7 @@
 			<div class="row">
 				<div class="col-xs-6">
 					<!--保健专题开始-->
-					<div class="panel panel-default">
+					<div class="panel panel-default" style="height:193px">
 						<div class="panel-heading">
 							<a href="__MODULE__/List/index/listname/健康养生">
 								<h3 class="panel-title">健康养生</h3>
@@ -130,7 +162,8 @@
 
 									<volist name='health' id='vol' empty='没有文章！'>
 										<a href="__MODULE__/Info/info/info_id/{$vol.info_id}">
-											<p class="app-line">{$vol.info_title}</p>
+											<span class="app-line yiban">{$vol.info_title}</span>
+											<span class="pull-right">{$vol.add_time}</span>
 										</a>
 									</volist>
 
@@ -142,7 +175,7 @@
 				</div>
 				<div class="col-xs-6">
 					<!--养生专题开始-->
-					<div class="panel panel-default">
+					<div class="panel panel-default" style="height:193px">
 						<div class="panel-heading">
 							<a href="__MODULE__/List/index/listname/我们的优势">
 								<h3 class="panel-title">我们的优势</h3>
@@ -161,7 +194,8 @@
 								<div class="col-xs-7 app-7">
 									<volist name='women' id='vol' empty='没有文章！'>
 										<a href="__MODULE__/Info/info/info_id/{$vol.info_id}">
-											<p class="app-line">{$vol.info_title}</p>
+											<span class="app-line yiban">{$vol.info_title}</span>
+											<span class="pull-right">{$vol.add_time}</span>
 										</a>
 									</volist>
 								</div>
