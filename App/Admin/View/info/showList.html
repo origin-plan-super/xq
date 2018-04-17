@@ -181,12 +181,9 @@
 
             var key = $('#key').val();
 
-
             // key = key.replace(/\s+/g, " ");//删除所有空格;
 
-            console.log(key);
-
-            var key_where = 'info_id|info_title';
+            var key_where = 'info_title';
             tableIns.reload({
                 page: {
                     curr: 1 //重新从第 1 页s开始
@@ -199,7 +196,6 @@
                 , done: function (res, curr, count) {
                     //如果是异步请求数据方式，res即为你接口返回的信息。
                     //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
-                    console.log(res);
                     w(res);
                     //得到当前页码
                     // console.log(curr);
